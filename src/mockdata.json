@@ -1,0 +1,144 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Snake Game",
+      "description": "A recreation of the classic snake game with some personal twist, adding obsticals and portals",
+      "role": "Developer",
+      "techStack": ["JavaFX", "MVC Arcutectures", "Java", "Git", "GitHub"],
+      "githubLink": "",
+      "hostingLink": ""
+    },
+    {
+      "id": 2,
+      "name": "Restaurant Website",
+      "description": "A online, e-commers style restaurant website, where users can order items found within a restaurant",
+      "role": "Developer",
+      "techStack": ["ReactJS", "Redux-Toolkit", "React-Redux", "React Router (Dom)", "React Router", "Tail wind", "Git", "GitHub"],
+      "githubLink": "https://github.com/Remy-Post/Meals-App",
+      "hostingLink": ""
+    },
+    {
+      "id": 3,
+      "name": "Restaurant Review App",
+      "description": "A restaurant review app, where users can review restaurants and leave comments, helping potentials customers make a well-informed decision",
+      "role": "Developer",
+      "highlights": "Used Stipe",
+      "techStack": ["C#", "MVC razor pages", "Stripe", "Google OAuth", "Github OAuth", "Discord OAuth", "CRUD Operations", "Bootstrap", "Git", "GitHub"],
+      "githubLink": "https://github.com/Remy-Post/Restaurant_Review_App",
+      "hostingLink": "https://restaurant-review.tryasp.net/"
+    }
+  ],
+  "techStacks": [
+    {
+      "id": 1,
+      "name": "C#",
+      "proficiency": "Intermediate",
+      "projects": [3, 4]
+    },
+    {
+      "id": 2,
+      "name": "C++",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 3,
+      "name": "Java",
+      "proficiency": "Intermediate",
+      "projects": [1]
+    },
+    {
+      "id": 4,
+      "name": "JavaFX",
+      "proficiency": "Intermediate",
+      "projects": [1]
+    },
+    {
+      "id": 5,
+      "name": "React",
+      "proficiency": "Intermediate",
+      "projects": [2]
+    },
+    {
+      "id": 6,
+      "name": "JavaScript",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 7,
+      "name": "TypeScript",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 8,
+      "name": "MySQL",
+      "proficiency": "Intermediate",
+      "projects": []
+    },
+    {
+      "id": 9,
+      "name": "PHP",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 10,
+      "name": "HTML",
+      "proficiency": "Advanced",
+      "projects": []
+    },
+    {
+      "id": 11,
+      "name": "CSS",
+      "proficiency": "Intermediate",
+      "projects": []
+    },
+    {
+      "id": 12,
+      "name": "Tailwind",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 13,
+      "name": "Bootstrap",
+      "proficiency": "Beginner",
+      "projects": []
+    },{
+      "id": 14,
+      "name": "Python",
+      "proficiency": "Intermediate",
+      "projects": []
+    },{
+      "id": 15,
+      "name": "Arduino (C++)",
+      "proficiency": "Beginner",
+      "projects": []
+    }
+  ],
+  "contacts": [
+    {
+      "name": "GitHub",
+      "icon": "",
+      "link": "https://github.com/Remy-Post"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "",
+      "link": "https://www.linkedin.com/in/remy-post/"
+    },
+    {
+      "name": "Discord",
+      "icon": "",
+      "link": "https://discord.com/users/remy-post"
+    },
+    {
+      "name": "Email",
+      "icon": "",
+      "link": "remy.post.06@gmail.com"
+    }
+  ]
+}
