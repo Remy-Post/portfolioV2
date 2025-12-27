@@ -8,7 +8,7 @@ Why it's a benchmark: This is arguably the most famous developer portfolio right
 
 Brittany Chiang
 
-URL: brittanychiang.com
+URL <a href="brittanychiang.com">brittanychiang.com</a>
 
 Why it's a benchmark: A gold standard for "clean and professional." It uses a single-page layout that is content-focused, highly accessible, and uses a sticky sidebar for navigation. It is often cited as a perfect template for backend/full-stack engineers who want to look polished without being "flashy".
 

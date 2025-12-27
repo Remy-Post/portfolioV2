@@ -64,7 +64,9 @@ export default function App() {
                         <h3 className="text-center font-bold text-2xl">Projects</h3>
                         {
                             isLoading == true ? <div>Loading...</div> : projects.map( ((project, index) => (
-                                <Project key={index} {...project} />
+                                <div className="p-4 m-6 bg-gray-100 rounded-4xl">
+                                    <Project key={index} {...project} />
+                                </div>
                             )))
                         }
                     </div> {/*Projects*/}

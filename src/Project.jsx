@@ -11,9 +11,9 @@ export default function Project({...params}){
 
     }
     return(
-        <div className="">
+        <div className="bg-gray-100 p-5 rounded-4xl">
             {/*Header*/}
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-[20%_60%_20%]">
                 <div className="w-20 flex justify-evenly">
                     <div className="bg-cyan-400 w-[3vh] h-[3vh] rounded-4xl"></div>
                     <div className="bg-pink-500 w-[3vh] h-[3vh] rounded-4xl"></div>
@@ -58,6 +58,7 @@ export default function Project({...params}){
                         params.techStack.map((t, index) => (
                             <span key={index}>
                                 <span key={index} className={colors.main}>{t}</span>
+                                {index < params.techStack.length - 1 && <span className={colors.gray}>, </span>}
                                 <span className={colors.gray}>'</span>
                             </span>
                         ))
@@ -73,14 +74,17 @@ export default function Project({...params}){
                     <span className={colors.blue}>{params.description}</span>
                     <span className={colors.gray}>,</span>
                 </div>
-                {params.liveLink && <div className="mx-3.5">
+                {params.hostingLink && <div className="mx-3.5">
                     <span className={colors.main}>Live link: </span>
-                    <span className="text-blue-600 underline underline-offset-2">{params.link}</span>
+                    <a href={params.hostingLink} target="_blank">
+                        <span className="text-blue-600 underline underline-offset-2">{params.hostingLink}</span>
+                    </a>
                 </div>}
                 {params.githubLink && <div className="mx-3.5">
                     <span className={colors.main}>Source: </span>
-                    <span className="text-blue-600">
-                        {params.githubLink}</span>
+                    <a href={params.githubLink} target="_blank" className="text-blue-600 hover:underline">
+                        <span>{params.githubLink}</span>
+                    </a>
                 </div>}
                 <div> {/*Ending*/}
                     <span className={colors.gray}>{"}"};</span>
