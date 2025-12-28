@@ -4,3 +4,9 @@ body {
     width: 90vw;
     margin: 0 auto;
 }
+
+.icon:hover{
+ transform: scale(1.5);
+}
+
+
