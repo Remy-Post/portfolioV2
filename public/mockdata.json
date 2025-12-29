@@ -145,15 +145,29 @@
   "work": [
     {
       "company": "Town of Bradford",
-      "position": "Camp Counsoler",
-      "date" : "2000 - 2300",
+      "position": "Camp Counsellor",
+      "date": {
+        "year" : "2023 to 2025",
+        "month": "July - Aug"
+      },
       "descriptionArray": [
-        "",
-        ""
+        "Designed and facilitated daily educational activities (crafts, games, team-building exercises) for groups of 30+ campers aged 4 to 8, fostering creativity, teamwork, and fundamental skill development.",
+        "Resolved conflicts and promoted inclusivity by mediating disagreements among campers and implementing behaviour management strategies to ensure a safe and welcoming environment.",
+        "Collaborated with parents and staff: Communicated daily updates to caretakers and parents, addressed concerns, and partnered with colleagues to optimize camp procedures and workflows.",
+        "Worked at special town events: Canada Day Celebrations and Carrot Fest, developing customer service and communication skills."
       ]
     },
     {
-      "company": "Food Basicis"
+      "company": "Food Basics",
+      "position": "Meat Associate",
+      "date": {
+        "year": "2023 to 2023",
+        "month": "Jan - May"
+      },
+      "descriptionArray": [
+        "Delivered customer service: Assisted shoppers with product inquiries, recommendations, and special requests, promoting a positive shopping experience.",
+        "Collaborated with team members: Supported efficient workflow during peak hours to meet departmental goals and maintain organized displays."
+      ]
     }
   ]
 }

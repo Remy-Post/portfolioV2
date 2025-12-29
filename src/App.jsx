@@ -12,9 +12,13 @@ export default function App() {
     const [projects, setProjects] = useState([]);
     const [work, setWork] = useState([]);
 
+    const { ref: aboutMeRef, inView: aboutMeInView } = useInView();
     const { ref: projectRef, inView: projectInView } = useInView();
+    const { ref: workRef, inView: workInView } = useInView();
 
+    console.log("About me Ref:", aboutMeInView)
     console.log("Project Ref: ",projectInView);
+    console.log("Work Ref: ",workInView);
 
     useEffect(() => {
         fetch("mockdata.json").then(res => res.json()).then(data => {
@@ -36,9 +40,9 @@ export default function App() {
 
                     <div className="ml-20">
                         <nav className="flex flex-col border-l-2 border-gray-300">
-                            <NavItem href="#about" isActive={true} >About Me</NavItem>
-                            <NavItem href="#projects" isActive={false}>Projects</NavItem>
-                            <NavItem href="#contacts" isActive={false}>Contacts</NavItem>
+                            <NavItem href="#about" isActive={aboutMeInView} >About Me</NavItem>
+                            <NavItem href="#projects" isActive={projectInView && !aboutMeInView}>Projects</NavItem>
+                            <NavItem href="#work" isActive={workInView && !projectInView && !aboutMeInView}>Work Experience </NavItem>
                         </nav>
                     </div>
 
@@ -60,8 +64,8 @@ export default function App() {
 
                 {/*-----------------------------------------*/} {/*Switching Sides*/}
 
-                <section className="overflow-y-auto w-[50%] bg-lime-200 py-10" ref={projectRef}>
-                    <div className="w-[90%] mx-auto" id="#about">
+                <section className="overflow-y-auto w-[50%] bg-lime-200 py-10">
+                    <div className="w-[90%] mx-auto" id="#about" ref={aboutMeRef}>
                         <h3 className="font-bold text-2xl text-center">About Me</h3>
                         <TextHolder>
                             <span className="text-xl">I</span> am currently a second-year student concurrently pursuing an Honours Bachelor of Science in Computer Science at Lakehead University and a Computer Programmer diploma at Georgian College.
@@ -76,7 +80,7 @@ export default function App() {
                             <span className="text-xl">W</span>hen I'm not coding, you can find me analyzing movies, strategizing over board games, or relaxing with video games.
                         </TextHolder>
                     </div> {/*About Me*/}
-                    <div className="mt-10" id="#projects">
+                    <div className="mt-10" id="#projects" ref={projectRef}>
                         <h3 className="text-center font-bold text-2xl">Projects</h3>
                         <div className="projectContainer">
                         {
@@ -88,10 +92,10 @@ export default function App() {
                         }
                         </div>
                     </div> {/*Projects*/}
-                    <div> {/*Work*/}
+                    <div ref={workRef} id="work"> {/*Work*/}
                         {
                             isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
-                                <div key={index} className="p-4 m-6 bg-rose-400/65 rounded-xl project">
+                                <div key={index} className="p-4 mb-8 bg-rose-400/65 rounded-xl project w-[60%] hover:w-[90%] group mx-auto transition-all duration-300 ease-in-out">
                                     <Work
                                         date={work.date}
                                         company={work.company}
