@@ -9,4 +9,12 @@ body {
  transform: scale(1.5);
 }
 
+.project{
+    transition: opacity 0.5s ease;
+}
+
+.projectContainer:hover > :not(:hover){
+    opacity: 0.75;
+
+}
 

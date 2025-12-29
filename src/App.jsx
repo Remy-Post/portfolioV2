@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
+
+import { useInView } from "react-intersection-observer";
+
 import Footer from "./Footer.jsx";
+import Work from "./Work.jsx";
 import Project from "./Project.jsx";
 
 export default function App() {
+
     const [isLoading, setLoading] = useState(true);
     const [projects, setProjects] = useState([]);
+    const [work, setWork] = useState([]);
+
+    const { ref: projectRef, inView: projectInView } = useInView();
+
+    console.log("Project Ref: ",projectInView);
 
     useEffect(() => {
         fetch("mockdata.json").then(res => res.json()).then(data => {
             setProjects(data.projects);
+            setWork(data.work);
             setLoading(false);
             console.log(data);
         });
@@ -16,8 +27,8 @@ export default function App() {
 
     return(
         <>
-            <div className="flex">
-                <section className="static h-screen w-[50%] bg-gray-400 flex flex-col justify-evenly py-10">
+            <div className="flex h-screen overflow-hidden ">
+                <section className="w-[50%] bg-gray-400 flex flex-col justify-evenly py-10">
                     <div className="ml-20">
                         <h3 className="text-3xl">Hi,</h3>
                         <h1 className="text-4xl font-bold">I'm Remy</h1>
@@ -49,8 +60,8 @@ export default function App() {
 
                 {/*-----------------------------------------*/} {/*Switching Sides*/}
 
-                <section className="static h-screen w-[50%] bg-lime-200 py-10">
-                    <div className="w-[90%] mx-auto" id="#aboutMe">
+                <section className="overflow-y-auto w-[50%] bg-lime-200 py-10" ref={projectRef}>
+                    <div className="w-[90%] mx-auto" id="#about">
                         <h3 className="font-bold text-2xl text-center">About Me</h3>
                         <TextHolder>
                             <span className="text-xl">I</span> am currently a second-year student concurrently pursuing an Honours Bachelor of Science in Computer Science at Lakehead University and a Computer Programmer diploma at Georgian College.
@@ -65,17 +76,33 @@ export default function App() {
                             <span className="text-xl">W</span>hen I'm not coding, you can find me analyzing movies, strategizing over board games, or relaxing with video games.
                         </TextHolder>
                     </div> {/*About Me*/}
-                    <div className="mt-10">
+                    <div className="mt-10" id="#projects">
                         <h3 className="text-center font-bold text-2xl">Projects</h3>
+                        <div className="projectContainer">
                         {
                             isLoading == true ? <div>Loading...</div> : projects.map( ((project, index) => (
-                                <div className="p-4 m-6 bg-gray-100 rounded-4xl">
-                                    <Project key={index} {...project} />
+                                <div key={index} className="p-4 m-6 bg-gray-100 rounded-4xl project">
+                                    <Project {...project} />
                                 </div>
                             )))
                         }
+                        </div>
                     </div> {/*Projects*/}
-                    <div></div> {/*Contacts*/}
+                    <div> {/*Work*/}
+                        {
+                            isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
+                                <div key={index} className="p-4 m-6 bg-rose-400/65 rounded-xl project">
+                                    <Work
+                                        date={work.date}
+                                        company={work.company}
+                                        position={work.position}
+                                        descriptionArray={work.descriptionArray}
+                                        css={work.css} />
+                                </div>
+                            )))
+                        }
+
+                    </div>
                 </section>
             </div>
         </>
@@ -93,10 +120,12 @@ function NavItem({href, isActive, children }) {
         <a
             href={href}
             className={`
-        relative pl-8 py-4 text-xl font-medium transition-all duration-300 block
+        relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block
         -ml-[2px] /* Negative margin pulls it on top of the parent border */
+        outline-none /* Removes the outline */ 
+        border-transparent
         ${isActive
-                ? "scale-[1.2]"  /* Active State styles */
+                ? "ml-3.5 scale-[1.1] underline underline-offset-2"  /* Active State styles */
                 : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-400"} 
       `}
         >

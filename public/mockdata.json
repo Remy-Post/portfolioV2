@@ -140,5 +140,20 @@
       "icon": "",
       "link": "remy.post.06@gmail.com"
     }
+  ],
+
+  "work": [
+    {
+      "company": "Town of Bradford",
+      "position": "Camp Counsoler",
+      "date" : "2000 - 2300",
+      "descriptionArray": [
+        "",
+        ""
+      ]
+    },
+    {
+      "company": "Food Basicis"
+    }
   ]
 }
