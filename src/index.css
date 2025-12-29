@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+/* Hide scrollbar */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Infinite carousel animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    animation: scroll 20s linear infinite;
+    width: max-content;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
 body {
     width: 90vw;
     margin: 0 auto;

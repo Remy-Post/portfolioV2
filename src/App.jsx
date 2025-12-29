@@ -5,12 +5,14 @@ import { useInView } from "react-intersection-observer";
 import Footer from "./Footer.jsx";
 import Work from "./Work.jsx";
 import Project from "./Project.jsx";
+import Language from "./Lauguage.jsx";
 
 export default function App() {
 
     const [isLoading, setLoading] = useState(true);
     const [projects, setProjects] = useState([]);
     const [work, setWork] = useState([]);
+    const [techStacks, setTechStacks] = useState([]);
 
     const { ref: aboutMeRef, inView: aboutMeInView } = useInView();
     const { ref: projectRef, inView: projectInView } = useInView();
@@ -24,6 +26,7 @@ export default function App() {
         fetch("mockdata.json").then(res => res.json()).then(data => {
             setProjects(data.projects);
             setWork(data.work);
+            setTechStacks(data.techStacks);
             setLoading(false);
             console.log(data);
         });
@@ -79,6 +82,28 @@ export default function App() {
                         <TextHolder>
                             <span className="text-xl">W</span>hen I'm not coding, you can find me analyzing movies, strategizing over board games, or relaxing with video games.
                         </TextHolder>
+
+                        <div className="mt-5 overflow-hidden">
+                            <div className="carousel-track">
+                                {
+                                    isLoading == true ? <div>Loading...</div> : (
+                                        <>
+                                            {techStacks.map((techStack, index) => (
+                                                <div key={index} className="shrink-0 rounded-2xl bg-gray-100 p-2">
+                                                    <Language name={techStack.name} image={techStack.image} />
+                                                </div>
+                                            ))}
+                                            {/* Duplicate for seamless loop */}
+                                            {techStacks.map((techStack, index) => (
+                                                <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-gray-100 p-2">
+                                                    <Language name={techStack.name} image={techStack.image} />
+                                                </div>
+                                            ))}
+                                        </>
+                                    )
+                                }
+                            </div>
+                        </div>
                     </div> {/*About Me*/}
                     <div className="mt-10" id="#projects" ref={projectRef}>
                         <h3 className="text-center font-bold text-2xl">Projects</h3>
