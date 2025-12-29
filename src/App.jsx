@@ -89,13 +89,13 @@ export default function App() {
                                     isLoading == true ? <div>Loading...</div> : (
                                         <>
                                             {techStacks.map((techStack, index) => (
-                                                <div key={index} className="shrink-0 rounded-2xl bg-gray-100 p-2">
+                                                <div key={index} className="shrink-0 rounded-2xl bg-gray-600/25 hover:bg-gray-600/75 group p-2">
                                                     <Language name={techStack.name} image={techStack.image} />
                                                 </div>
                                             ))}
                                             {/* Duplicate for seamless loop */}
                                             {techStacks.map((techStack, index) => (
-                                                <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-gray-100 p-2">
+                                                <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-gray-600/25 hover:bg-gray-600/75 group p-2">
                                                     <Language name={techStack.name} image={techStack.image} />
                                                 </div>
                                             ))}

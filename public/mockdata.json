@@ -34,41 +34,48 @@
       "id": 1,
       "name": "C#",
       "proficiency": "Intermediate",
+      "image": "/Icons/csharp-icon.svg",
       "projects": [3, 4]
     },
     {
       "id": 2,
       "name": "C++",
+      "image": "/Icons/cplusplus-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },
     {
       "id": 3,
       "name": "Java",
+      "image": "/Icons/java-icon.svg",
       "proficiency": "Intermediate",
       "projects": [1]
     },
     {
       "id": 4,
       "name": "JavaFX",
+      "image": "/Icons/java-icon.svg",
       "proficiency": "Intermediate",
       "projects": [1]
     },
     {
       "id": 5,
       "name": "React",
+      "image": "/Icons/react-icon.svg",
       "proficiency": "Intermediate",
       "projects": [2]
     },
     {
       "id": 6,
       "name": "JavaScript",
+      "image": "/Icons/javascript-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },
     {
       "id": 7,
       "name": "TypeScript",
+      "image": "/Icons/typescript-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },
@@ -76,11 +83,13 @@
       "id": 8,
       "name": "MySQL",
       "proficiency": "Intermediate",
+      "image": "/Icons/mysql-icon.svg",
       "projects": []
     },
     {
       "id": 9,
       "name": "PHP",
+      "image": "/Icons/php-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },
@@ -88,33 +97,39 @@
       "id": 10,
       "name": "HTML",
       "proficiency": "Advanced",
+      "image": "/Icons/html5-icon.svg",
       "projects": []
     },
     {
       "id": 11,
       "name": "CSS",
+      "image": "/Icons/css-icon.svg",
       "proficiency": "Intermediate",
       "projects": []
     },
     {
       "id": 12,
       "name": "Tailwind",
+      "image": "/Icons/tailwindCss-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },
     {
       "id": 13,
       "name": "Bootstrap",
+      "image": "/Icons/bootstrap-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     },{
       "id": 14,
       "name": "Python",
+      "image": "/Icons/python-icon.svg",
       "proficiency": "Intermediate",
       "projects": []
     },{
       "id": 15,
       "name": "Arduino (C++)",
+      "image": "/Icons/arduino-icon.svg",
       "proficiency": "Beginner",
       "projects": []
     }
