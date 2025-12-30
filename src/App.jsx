@@ -146,7 +146,7 @@ export default function App() {
                         {
                             isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
                                 <div key={index}
-                                     className={`p-4 mb-8 bg-gray-50 hover:bg-gray-100 rounded-xl project w-[90%] group mx-auto 'transition-all duration-300 ease-in-out`}>
+                                     className={`p-4 mb-8 bg-gray-50 cursor-grabs hover:cursor-default hover:bg-gray-100 rounded-xl project w-[90%] group mx-auto 'transition-all duration-300 ease-in-out`}>
                                     <Work
                                         date={work.date}
                                         company={work.company}
