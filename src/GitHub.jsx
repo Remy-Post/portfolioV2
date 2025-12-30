@@ -66,7 +66,7 @@ export default function GitHub() {
                 <GitHubCalendar
                     username="Remy-Post"
                     theme="dark"
-                    <
+
                 />
             </section>
         </div>
