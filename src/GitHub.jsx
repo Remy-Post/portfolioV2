@@ -1,7 +1,9 @@
 ﻿import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function GitHub({githubLink}) {
+import GitHubCalendar from "react-github-calendar";
+
+export default function GitHub() {
     const [keyWords, setKeyWords] = useState([]);
     const [activeKeywordIndex, setActiveKeywordIndex] = useState(0);
 
@@ -45,17 +47,11 @@ export default function GitHub({githubLink}) {
                 </div>
 
                 <article className="flex gap-5 ml-20">
-                    <a href="Resume.pdf" target="_blank">
-                        <img src="Document.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
-                    </a>
-                    <Link to="/github">
-                        <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
+                    <Link to="/">
+                        <img src="./Icons/home-icon.svg" alt="Document Icon" className="w-10 h-10 icon" />
                     </Link>
-                    <a href="tel:+19053926023" target="_blank">
-                        <img src="Phone.svg" alt="Phone Icon" className="w-10 h-10 icon" />
-                    </a>
-                    <a href="mailto:remy.post.06@gmail.com" target="_blank">
-                        <img src="Gmail.svg" alt="Gmail Icon" className="w-10 h-10 icon" />
+                    <a href="https://github.com/Remy-Post/" target="_blank">
+                        <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
                     </a>
                 </article>
             </section>
@@ -63,7 +59,15 @@ export default function GitHub({githubLink}) {
             {/*-----------------------------------------*/} {/*Right Side*/}
 
             <section className="w-[99%] bg-[#FFFFFF] py-10">
-                {/* Right side content goes here */}
+                <div className="flex justify-evenly w-full mx-auto p-4 my-6"> {/*Title*/}
+                    <h3 className="text-3xl font-bold">GitHub</h3>
+                    <h3 className="text-2xl italic text-[#6C5F6F]">Remy-Post</h3>
+                </div>
+                <GitHubCalendar
+                    username="Remy-Post"
+                    theme="dark"
+                    <
+                />
             </section>
         </div>
     )
