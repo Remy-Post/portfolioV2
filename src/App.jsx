@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-
 import { useInView } from "react-intersection-observer";
+
+import { Link } from "react-router-dom";
 
 import Footer from "./Footer.jsx";
 import Work from "./Work.jsx";
@@ -75,9 +76,9 @@ export default function App() {
                         <a href="Resume.pdf" target="_blank" >
                             <img src="Document.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
                         </a>
-                        <a href="https://github.com/Remy-Post/" target="_blank">
+                        <Link to="/github">
                             <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
-                        </a>
+                        </Link>
                         <a href="tel:+19053926023" target="_blank">
                             <img src="Phone.svg" alt="Phone Icon" className="w-10 h-10 icon" />
                         </a>
