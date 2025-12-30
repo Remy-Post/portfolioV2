@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { useInView } from "react-intersection-observer";
 
@@ -13,6 +13,9 @@ export default function App() {
     const [projects, setProjects] = useState([]);
     const [work, setWork] = useState([]);
     const [techStacks, setTechStacks] = useState([]);
+    const [hoveredWork, setMouseHover] = useState(true);
+
+    const timerRef = useRef(null);
 
     const { ref: aboutMeRef, inView: aboutMeInView } = useInView();
     const { ref: projectRef, inView: projectInView } = useInView();
@@ -31,6 +34,8 @@ export default function App() {
             console.log(data);
         });
     }, []);
+
+
 
     return(
         <>
@@ -120,7 +125,10 @@ export default function App() {
                     <div ref={workRef} id="work"> {/*Work*/}
                         {
                             isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
-                                <div key={index} className="p-4 mb-8 bg-rose-400/65 rounded-xl project w-[60%] hover:w-[90%] group mx-auto transition-all duration-300 ease-in-out">
+                                <div key={index}
+                                     onMouseEnter={() => setMouseHover(index)}
+                                     onMouseLeave={() => setTimeout(() => setMouseHover(null), 1000)}
+                                     className={`p-4 mb-8 bg-rose-400/65 rounded-xl project w-[60%] ${hoveredWork === index && 'hover:w-[90%]'} group mx-auto ${ hoveredWork === index && 'transition-all duration-300 ease-in-out'}`}>
                                     <Work
                                         date={work.date}
                                         company={work.company}
