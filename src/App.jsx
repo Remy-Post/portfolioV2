@@ -35,8 +35,6 @@ export default function App() {
         });
     }, []);
 
-
-
     return(
         <>
             <div className="flex h-screen overflow-hidden ">
@@ -126,9 +124,7 @@ export default function App() {
                         {
                             isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
                                 <div key={index}
-                                     onMouseEnter={() => setMouseHover(index)}
-                                     onMouseLeave={() => setTimeout(() => setMouseHover(null), 1000)}
-                                     className={`p-4 mb-8 bg-rose-400/65 rounded-xl project w-[60%] ${hoveredWork === index && 'hover:w-[90%]'} group mx-auto ${ hoveredWork === index && 'transition-all duration-300 ease-in-out'}`}>
+                                     className={`p-4 mb-8 bg-rose-400/65 rounded-xl project w-[90%] group mx-auto 'transition-all duration-300 ease-in-out`}>
                                     <Work
                                         date={work.date}
                                         company={work.company}
