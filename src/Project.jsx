@@ -1,23 +1,23 @@
 //Helper used to return a 'project element'
 export default function Project({...params}){
     const colors = {
-        gray: "text-gray-700",
-        yellow: "text-amber-300",
-        blue: "text-cyan-400",
-        red: "text-pink-500",
-        orange: "text-orange-400",
-        main: "text-black",
-        green: "text-green-500"
+        gray: "text-[#586574]",
+        yellow: "text-[#6C5F6F]",
+        blue: "text-[#0B7285]",
+        red: "text-[#D96C75]",
+        orange: "text-[#D96C75]",
+        main: "text-[#0B1724]",
+        green: "text-[#0B7285]"
 
     }
     return(
-        <div className="bg-gray-100 p-5 rounded-4xl project">
+        <div className="bg-[#FFFFFF] p-5 rounded-4xl project">
             {/*Header*/}
             <div className="grid grid-cols-[20%_60%_20%]">
                 <div className="w-20 flex justify-evenly">
-                    <div className="bg-cyan-400 w-[3vh] h-[3vh] rounded-4xl"></div>
-                    <div className="bg-pink-500 w-[3vh] h-[3vh] rounded-4xl"></div>
-                    <div className="bg-amber-300 w-[3vh] h-[3vh] rounded-4xl"></div>
+                    <div className="bg-[#0B7285] w-[3vh] h-[3vh] rounded-4xl"></div>
+                    <div className="bg-[#D96C75] w-[3vh] h-[3vh] rounded-4xl"></div>
+                    <div className="bg-[#6C5F6F] w-[3vh] h-[3vh] rounded-4xl"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-center self-center">{params.name}</h3>
                 {/*Icon*/}
@@ -37,7 +37,7 @@ export default function Project({...params}){
                 </div>
             </div>
             {/*Body*/}
-            <hr className="text-blue-100 bg-black rounded-4xl h-[2px] px-3 my-2" />
+            <hr className="text-[#0B7285] bg-[#0B1724] rounded-4xl h-[2px] px-3 my-2" />
             <div>
                 <div> {/*Starting*/}
                     <span className={colors.red}>const</span>
@@ -79,7 +79,7 @@ export default function Project({...params}){
                 {params.hostingLink && <div className="mx-3.5">
                     <span className={colors.main}>Live link: </span>
                     <a href={params.hostingLink} target="_blank">
-                        <span className="text-blue-600 underline underline-offset-2">{params.hostingLink}</span>
+                        <span className="text-[#0B7285] underline underline-offset-2">{params.hostingLink}</span>
                     </a>
                 </div>}
                 {/*{params.githubLink && <div className="mx-3.5">*/}

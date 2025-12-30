@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { useInView } from "react-intersection-observer";
 
@@ -13,9 +13,6 @@ export default function App() {
     const [projects, setProjects] = useState([]);
     const [work, setWork] = useState([]);
     const [techStacks, setTechStacks] = useState([]);
-    const [hoveredWork, setMouseHover] = useState(true);
-
-    const timerRef = useRef(null);
 
     const { ref: aboutMeRef, inView: aboutMeInView } = useInView();
     const { ref: projectRef, inView: projectInView } = useInView();
@@ -37,24 +34,24 @@ export default function App() {
 
     return(
         <>
-            <div className="flex h-screen overflow-hidden ">
-                <section className="w-[50%] bg-gray-400 flex flex-col justify-evenly py-10">
+            <div className="grid grid-cols-[35%_65%] h-screen overflow-y-auto">
+                <section className="w-full h-screen sticky top-0 left-0  bg-[#F6F8FA] flex flex-col justify-evenly py-10">
                     <div className="ml-20">
                         <h3 className="text-3xl">Hi,</h3>
                         <h1 className="text-4xl font-bold">I'm Remy</h1>
                     </div> {/*Name*/}
 
                     <div className="ml-20">
-                        <nav className="flex flex-col border-l-2 border-gray-300">
-                            <NavItem href="#about" isActive={aboutMeInView} >About Me</NavItem>
-                            <NavItem href="#projects" isActive={projectInView && !aboutMeInView}>Projects</NavItem>
-                            <NavItem href="#work" isActive={workInView && !projectInView && !aboutMeInView}>Work Experience </NavItem>
+                        <nav className="flex flex-col border-l-2">
+                            <NavItem href="#about" isActive={aboutMeInView}>About Me</NavItem>
+                            <NavItem href="#projects" isActive={projectInView}>Projects</NavItem>
+                            <NavItem href="#work" isActive={workInView && projectInView && !aboutMeInView}>Work Experience </NavItem>
                         </nav>
                     </div>
 
                     <article className="flex gap-5 ml-20"> {/*Icons*/}
                         <a href="Resume.pdf" target="_blank" >
-                            <img src="Document.svg" alt="Document Icon" className="w-10 h-10 icon" />
+                            <img src="Document.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
                         </a>
                         <a href="https://github.com/Remy-Post/" target="_blank">
                             <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
@@ -70,7 +67,7 @@ export default function App() {
 
                 {/*-----------------------------------------*/} {/*Switching Sides*/}
 
-                <section className="overflow-y-auto w-[50%] bg-lime-200 py-10">
+                <section className="w-[99%] bg-[#FFFFFF] py-10">
                     <div className="w-[90%] mx-auto" id="#about" ref={aboutMeRef}>
                         <h3 className="font-bold text-2xl text-center">About Me</h3>
                         <TextHolder>
@@ -85,20 +82,23 @@ export default function App() {
                         <TextHolder>
                             <span className="text-xl">W</span>hen I'm not coding, you can find me analyzing movies, strategizing over board games, or relaxing with video games.
                         </TextHolder>
+                        <div>
+                            <p><span className="text-xl">O</span>n the side, I practice my skills by building projects, enhancing my knowledge, and learning new technologies found below: </p>
+                        </div>
 
-                        <div className="mt-5 overflow-hidden">
+                        <div className="mt-2 overflow-hidden rounded-2xl w-[90%] mx-auto">
                             <div className="carousel-track">
                                 {
                                     isLoading == true ? <div>Loading...</div> : (
                                         <>
                                             {techStacks.map((techStack, index) => (
-                                                <div key={index} className="shrink-0 rounded-2xl bg-gray-600/25 hover:bg-gray-600/75 group p-2">
+                                                <div key={index} className="shrink-0 rounded-2xl bg-[#6C5F6F]/25 hover:bg-[#6C5F6F]/75 group p-2">
                                                     <Language name={techStack.name} image={techStack.image} />
                                                 </div>
                                             ))}
                                             {/* Duplicate for seamless loop */}
                                             {techStacks.map((techStack, index) => (
-                                                <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-gray-600/25 hover:bg-gray-600/75 group p-2">
+                                                <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-[#6C5F6F]/25 hover:bg-[#6C5F6F]/50 transition-colors duration-500 group p-2">
                                                     <Language name={techStack.name} image={techStack.image} />
                                                 </div>
                                             ))}
@@ -108,12 +108,12 @@ export default function App() {
                             </div>
                         </div>
                     </div> {/*About Me*/}
-                    <div className="mt-10" id="#projects" ref={projectRef}>
-                        <h3 className="text-center font-bold text-2xl">Projects</h3>
+                    <div className="mt-20" id="#projects" ref={projectRef}>
+                        <h3 className="text-center font-bold text-4xl">Projects</h3>
                         <div className="projectContainer">
                         {
                             isLoading == true ? <div>Loading...</div> : projects.map( ((project, index) => (
-                                <div key={index} className="p-4 m-6 bg-gray-100 rounded-4xl project">
+                                <div key={index} className="p-4 m-6 bg-[#FFFFFF] rounded-4xl project">
                                     <Project {...project} />
                                 </div>
                             )))
@@ -124,7 +124,7 @@ export default function App() {
                         {
                             isLoading == true ? <div>Loading...</div> : work.map( ((work, index) => (
                                 <div key={index}
-                                     className={`p-4 mb-8 bg-rose-400/65 rounded-xl project w-[90%] group mx-auto 'transition-all duration-300 ease-in-out`}>
+                                     className={`p-4 mb-8 bg-gray-50 hover:bg-gray-100 rounded-xl project w-[90%] group mx-auto 'transition-all duration-300 ease-in-out`}>
                                     <Work
                                         date={work.date}
                                         company={work.company}
@@ -159,7 +159,7 @@ function NavItem({href, isActive, children }) {
         border-transparent
         ${isActive
                 ? "ml-3.5 scale-[1.1] underline underline-offset-2"  /* Active State styles */
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-400"} 
+                : "border-transparent text-[#586574] hover:text-[#0B1724]"} 
       `}
         >
             {children}

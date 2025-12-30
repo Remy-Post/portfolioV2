@@ -19,6 +19,22 @@
     }
 }
 
+@keyframes shake {
+    33%{
+        transform: rotate(-5deg);
+    }
+    66%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.resume:hover{
+    animation: shake infinite 2s linear;
+}
+
 .carousel-track {
     display: flex;
     gap: 1.25rem;
@@ -31,8 +47,7 @@
 }
 
 body {
-    width: 90vw;
-    margin: 0 auto;
+
 }
 
 .icon:hover{
@@ -44,7 +59,8 @@ body {
 }
 
 .projectContainer:hover > :not(:hover){
-    opacity: 0.75;
-
+    opacity: 0.45;
 }
+
+
 
