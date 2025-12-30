@@ -31,6 +31,34 @@
     }
 }
 
+@keyframes slider{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes keywordRotate {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    85% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
 .resume:hover{
     animation: shake infinite 2s linear;
 }
@@ -44,6 +72,11 @@
 
 .carousel-track:hover {
     animation-play-state: paused;
+}
+
+.keyword-rotate {
+    animation: keywordRotate 2400ms ease-in-out both;
+    will-change: transform, opacity;
 }
 
 body {

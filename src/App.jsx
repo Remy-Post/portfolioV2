@@ -13,6 +13,8 @@ export default function App() {
     const [projects, setProjects] = useState([]);
     const [work, setWork] = useState([]);
     const [techStacks, setTechStacks] = useState([]);
+    const [keyWords, setKeyWords] = useState([]);
+    const [activeKeywordIndex, setActiveKeywordIndex] = useState(0);
 
     const { ref: aboutMeRef, inView: aboutMeInView } = useInView();
     const { ref: projectRef, inView: projectInView } = useInView();
@@ -28,9 +30,22 @@ export default function App() {
             setWork(data.work);
             setTechStacks(data.techStacks);
             setLoading(false);
+            setKeyWords(data.keyWords);
             console.log(data);
         });
     }, []);
+
+    useEffect(() => {
+        if (!keyWords || keyWords.length === 0) return;
+
+        () => setActiveKeywordIndex(0);
+
+        const intervalId = window.setInterval(() => {
+            setActiveKeywordIndex((prev) => (prev + 1) % keyWords.length);
+        }, 2400);
+
+        return () => window.clearInterval(intervalId);
+    }, [keyWords]);
 
     return(
         <>
@@ -39,6 +54,13 @@ export default function App() {
                     <div className="ml-20">
                         <h3 className="text-3xl">Hi,</h3>
                         <h1 className="text-4xl font-bold">I'm Remy</h1>
+                        <p className="text-xl flex w-max" aria-live="polite">
+                            {keyWords.length > 0 && (
+                                <span key={activeKeywordIndex} className="inline-block keyword-rotate self-end">
+                                    {keyWords[activeKeywordIndex]}
+                                </span>
+                            )}
+                        </p>
                     </div> {/*Name*/}
 
                     <div className="ml-20">

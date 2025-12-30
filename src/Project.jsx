@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 //Helper used to return a 'project element'
 export default function Project({...params}){
+    const [isClicked, setIsClicked] = useState(false);
+
     const colors = {
         gray: "text-[#586574]",
         yellow: "text-[#6C5F6F]",
