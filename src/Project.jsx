@@ -19,10 +19,10 @@ export default function Project({...params}){
             {/*Header*/}
             <div className="grid grid-cols-[25%_50%_25%]">
                 <div className="w-full flex justify-start items-center">
-                    <div className={`${minusClicked ? 'bg-[#0B7285]' : 'bg-[#0B7285] hover:bg-[#0B7285]/90'} w-7 h-7 rounded-[100%] group flex justify-center items-center`}>
-                        { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 group-hover:cursor-pointer group-hover:bg-gray-700 rounded-4xl" onClick={() => setMinusClicked(!minusClicked)} />
+                    <div className={`${minusClicked ? 'bg-[#0B7285]' : 'bg-[#0B7285] hover:cursor-pointer hover:bg-[#0B7285]/90'} w-7 h-7 rounded-[100%] group flex justify-center items-center`} onClick={() => setMinusClicked(!minusClicked)}>
+                        { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 rounded-4xl"  />
                             :
-                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor-pointer  rounded-4xl " onClick={() => setMinusClicked(!minusClicked)} />
+                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 rounded-4xl " />
                         }
                     </div>
                     <div className="bg-[#D96C75] w-7 h-7 rounded-4xl mx-3"><p className="hidden">HIDDEN</p></div>

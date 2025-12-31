@@ -74,16 +74,16 @@ export default function App() {
 
                     <article className="flex gap-5 ml-20"> {/*Icons*/}
                         <a href="Resume.pdf" target="_blank" >
-                            <img src="Document.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
+                            <img src="./Icons/document-icon.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
                         </a>
                         <Link to="/github">
-                            <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
+                            <img src="./Icons/github-icon.svg" alt="Github Icon" className="w-10 h-10 icon"/>
                         </Link>
                         <a href="tel:+19053926023" target="_blank">
-                            <img src="Phone.svg" alt="Phone Icon" className="w-10 h-10 icon" />
+                            <img src="./Icons/phone-icon.svg" alt="Phone Icon" className="w-10 h-10 icon" />
                         </a>
                         <a href="mailto:remy.post.06@gmail.com" target="_blank">
-                            <img src="Gmail.svg" alt="Gmail Icon" className="w-10 h-10 icon" />
+                            <img src="./Icons/gmail-icon.svg" alt="Gmail Icon" className="w-10 h-10 icon" />
                         </a>
                     </article>
                 </section>
