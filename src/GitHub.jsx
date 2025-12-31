@@ -38,7 +38,7 @@ export default function GitHub() {
     }, [keyWords]);
 
     return (
-        <div className="grid grid-cols-[35%_65%] h-screen overflow-y-auto">
+        <div className="grid grid-cols-[35%_65%] h-screen overflow-y-auto overflow-x-hidden">
             <section className="w-full h-screen sticky top-0 left-0 bg-[#F6F8FA] flex flex-col justify-evenly py-10">
                 <div className="ml-20">
                     <h3 className="text-3xl">Hi,</h3>
@@ -60,7 +60,7 @@ export default function GitHub() {
                 </div>
 
                 <article className="flex gap-5 items-center ml-15">
-                    <Link to="/" target="_blank" className={`relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block -ml-[2px] outline-none border-transparent text-[#586574] hover:text-[#0B1724]`}>
+                    <Link to="/" className={`relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block -ml-[2px] outline-none border-transparent text-[#586574] hover:text-[#0B1724]`}>
                         <img src="./Icons/home-icon.svg" alt="Document Icon" className="w-10 h-10 icon" />
                     </Link>
                     <a href="https://github.com/Remy-Post/" target="_blank">
@@ -80,7 +80,7 @@ export default function GitHub() {
                         <div className="w-full mx-10">
                         <GitHubCalendar
                             username="Remy-Post"
-                            className="w-full h-full"
+                            className="w-max-full h-full overflow-x-hidden"
                             colorScheme="light"
                         />
                     </div> {/*Github Calendar*/}

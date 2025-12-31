@@ -20,9 +20,9 @@ export default function Project({...params}){
             <div className="grid grid-cols-[25%_50%_25%]">
                 <div className="w-full flex justify-start items-center">
                     <div className={`${minusClicked ? 'bg-[#0B7285]' : 'bg-[#0B7285] hover:bg-[#0B7285]/90'} w-7 h-7 rounded-[100%] group flex justify-center items-center`}>
-                        { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 group-hover:cursor group-hover:bg-gray-700 rounded-4xl icon" onClick={() => setMinusClicked(!minusClicked)} />
+                        { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 group-hover:cursor-pointer group-hover:bg-gray-700 rounded-4xl" onClick={() => setMinusClicked(!minusClicked)} />
                             :
-                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor  rounded-4xl " onClick={() => setMinusClicked(!minusClicked)} />
+                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor-pointer  rounded-4xl " onClick={() => setMinusClicked(!minusClicked)} />
                         }
                     </div>
                     <div className="bg-[#D96C75] w-7 h-7 rounded-4xl mx-3"><p className="hidden">HIDDEN</p></div>
@@ -33,7 +33,7 @@ export default function Project({...params}){
                 <div className="flex justify-end">
                     <a href={params.githubLink} target="_blank">
                         <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20"
-                             aria-hidden="true" className="h-8 w-8 self-end hover:cursor" height="1em" width="1em"
+                             aria-hidden="true" className="h-8 w-8 self-end hover:cursor-pointer" height="1em" width="1em"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd"
                                   d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"
