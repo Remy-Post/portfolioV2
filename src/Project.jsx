@@ -1,8 +1,8 @@
-import { useState } from "react";
+import {useState} from "react";
 
 //Helper used to return a 'project element'
 export default function Project({...params}){
-    const [isClicked, setIsClicked] = useState(false);
+    const [minusClicked, setMinusClicked] = useState(true);
 
     const colors = {
         gray: "text-[#586574]",
@@ -15,11 +15,16 @@ export default function Project({...params}){
 
     }
     return(
-        <div className="bg-[#FFFFFF] p-5 rounded-4xl project">
+        <div className={` ${minusClicked ? "p-5" : "p0 m-0"} rounded-4xl project`}>
             {/*Header*/}
             <div className="grid grid-cols-[20%_60%_20%]">
                 <div className="w-20 flex justify-evenly">
-                    <div className="bg-[#0B7285] w-[3vh] h-[3vh] rounded-4xl"></div>
+                    <div className="bg-[#0B7285] w-[3vh] h-[3vh] rounded-4xl group flex justify-center items-center">
+                        { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 group-hover:cursor group-hover:bg-gray-700 rounded-4xl icon" onClick={() => setMinusClicked(!minusClicked)} />
+                            :
+                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor group-hover:bg-gray-700 rounded-4xl icon" onClick={() => setMinusClicked(!minusClicked)} />
+                        }
+                    </div>
                     <div className="bg-[#D96C75] w-[3vh] h-[3vh] rounded-4xl"></div>
                     <div className="bg-[#6C5F6F] w-[3vh] h-[3vh] rounded-4xl"></div>
                 </div>
@@ -41,61 +46,69 @@ export default function Project({...params}){
                 </div>
             </div>
             {/*Body*/}
-            <hr className="text-[#0B7285] bg-[#0B1724] rounded-4xl h-[2px] px-3 my-2" />
-            <div>
-                <div> {/*Starting*/}
-                    <span className={colors.red}>const</span>
-                    <span className={colors.main}> project </span>
-                    <span className={colors.red}>=</span>
-                    <span className={colors.gray}>{' {'}</span>
-                </div>
-                <div className="mx-3.5"> {/* Name*/}
-                    <span className={colors.main}>type:</span>
-                    <span className={colors.gray}> '</span>
-                    <span className={colors.blue}>{params.type}</span>
-                    <span className={colors.yellow}>{params.name}</span>
-                    <span className={colors.gray}>'</span>
-                </div>
-                <div className="mx-3.5"> {/* Tech Stack */}
-                    <span className={colors.main}>Tools: </span>
-                    <span className={colors.gray}>[</span>
-                    <span className={colors.gray}>'</span>
-                    {
-                        params.techStack.map((t, index) => (
-                            <span key={index}>
+            {minusClicked ? (
+                <div>
+                    <hr className="text-[#0B7285] bg-[#0B1724] rounded-4xl h-[2px] px-3 my-2" />
+                    <div>
+                        <div> {/*Starting*/}
+                            <span className={colors.red}>const</span>
+                            <span className={colors.main}> project </span>
+                            <span className={colors.red}>=</span>
+                            <span className={colors.gray}>{' {'}</span>
+                        </div>
+                        <div className="mx-3.5"> {/* Name*/}
+                            <span className={colors.main}>type:</span>
+                            <span className={colors.gray}> '</span>
+                            <span className={colors.blue}>{params.type}</span>
+                            <span className={colors.yellow}>{params.name}</span>
+                            <span className={colors.gray}>'</span>
+                        </div>
+                        <div className="mx-3.5"> {/* Tech Stack */}
+                            <span className={colors.main}>Tools: </span>
+                            <span className={colors.gray}>[</span>
+                            <span className={colors.gray}>'</span>
+                            {
+                                params.techStack.map((t, index) => (
+                                    <span key={index}>
                                 <span key={index} className={colors.main}>{t}</span>
-                                {index < params.techStack.length - 1 && <span className={colors.gray}>, </span>}
-                                <span className={colors.gray}>'</span>
+                                        {index < params.techStack.length - 1 && <span className={colors.gray}>, </span>}
+                                        <span className={colors.gray}>'</span>
                             </span>
-                        ))
-                    }
-                    <span className={colors.gray}>]</span>
+                                ))
+                            }
+                            <span className={colors.gray}>]</span>
+                        </div>
+                        <div className="mx-3.5"> {/*Role*/}
+                            <span className={colors.main}>myRole: </span>
+                            <span className={colors.orange}>{params.role}</span>
+                        </div>
+                        <div className="mx-3.5"> {/*Description*/}
+                            <span className={colors.main}>Description: </span>
+                            <span className={colors.blue}>{params.description}</span>
+                            <span className={colors.gray}>,</span>
+                        </div>
+                        {params.hostingLink && <div className="mx-3.5">
+                            <span className={colors.main}>Live link: </span>
+                            <a href={params.hostingLink} target="_blank">
+                                <span className="text-[#0B7285] underline underline-offset-2">{params.hostingLink}</span>
+                            </a>
+                        </div>}
+                        {/*{params.githubLink && <div className="mx-3.5">*/}
+                        {/*    <span className={colors.main}>Source: </span>*/}  {/*GITHUB LINK*/}
+                        {/*    <a href={params.githubLink} target="_blank" className="text-blue-600 hover:underline">*/}
+                        {/*        <span>{params.githubLink}</span>*/}
+                        {/*    </a>*/}
+                        {/*</div>}*/}
+                        <div> {/*Ending*/}
+                            <span className={colors.gray}>{"}"};</span>
+                        </div>
+                    </div>
                 </div>
-                <div className="mx-3.5"> {/*Role*/}
-                    <span className={colors.main}>myRole: </span>
-                    <span className={colors.orange}>{params.role}</span>
-                </div>
-                <div className="mx-3.5"> {/*Description*/}
-                    <span className={colors.main}>Description: </span>
-                    <span className={colors.blue}>{params.description}</span>
-                    <span className={colors.gray}>,</span>
-                </div>
-                {params.hostingLink && <div className="mx-3.5">
-                    <span className={colors.main}>Live link: </span>
-                    <a href={params.hostingLink} target="_blank">
-                        <span className="text-[#0B7285] underline underline-offset-2">{params.hostingLink}</span>
-                    </a>
-                </div>}
-                {/*{params.githubLink && <div className="mx-3.5">*/}
-                {/*    <span className={colors.main}>Source: </span>*/}  {/*GITHUB LINK*/}
-                {/*    <a href={params.githubLink} target="_blank" className="text-blue-600 hover:underline">*/}
-                {/*        <span>{params.githubLink}</span>*/}
-                {/*    </a>*/}
-                {/*</div>}*/}
-                <div> {/*Ending*/}
-                    <span className={colors.gray}>{"}"};</span>
-                </div>
-            </div>
+
+            ) : (
+                <></>
+            )}
+
             {/*Footer*/}
             <div>
 

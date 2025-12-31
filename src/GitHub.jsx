@@ -87,8 +87,8 @@ export default function GitHub() {
                     <h3 className="text-4xl font-bold mt-20 ml-13">Projects</h3>
                     {
                         isLoading == true ? <div>Loading...</div> : projects.map( ((project, index) => (
-                            <div key={index} className="p-4 m-6 bg-[#FFFFFF] rounded-4xl project">
-                                <Project {...project} />
+                            <div key={index} className="p-4 m-6 bg-[#FFFFFF] rounded-4xl project hover:bg-gray-500/20">
+                                <Project {...project} css="bg-gray-500/60" />
                             </div>
                         )))
                     }
