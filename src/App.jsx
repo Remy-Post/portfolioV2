@@ -116,13 +116,17 @@ export default function App() {
                                         <>
                                             {techStacks.map((techStack, index) => (
                                                 <div key={index} className="shrink-0 rounded-2xl bg-[#6C5F6F]/25 hover:bg-[#6C5F6F]/75 group p-2">
-                                                    <Language name={techStack.name} image={techStack.image} />
+                                                    <Link to={`/${techStack.name.toLowerCase()}`}>
+                                                        <Language name={techStack.name} image={techStack.image} />
+                                                    </Link>
                                                 </div>
                                             ))}
                                             {/* Duplicate for seamless loop */}
                                             {techStacks.map((techStack, index) => (
                                                 <div key={`dup-${index}`} className="shrink-0 rounded-2xl bg-[#6C5F6F]/25 hover:bg-[#6C5F6F]/50 transition-colors duration-500 group p-2">
-                                                    <Language name={techStack.name} image={techStack.image} />
+                                                    <Link to={techStack.name.toLowerCase()}>
+                                                        <Language name={techStack.name} image={techStack.image} />
+                                                    </Link>
                                                 </div>
                                             ))}
                                         </>

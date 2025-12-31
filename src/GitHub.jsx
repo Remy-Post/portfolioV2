@@ -64,7 +64,7 @@ export default function GitHub() {
                         <img src="./Icons/home-icon.svg" alt="Document Icon" className="w-10 h-10 icon" />
                     </Link>
                     <a href="https://github.com/Remy-Post/" target="_blank">
-                        <img src="./Icons/Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
+                        <img src="./Icons/github-icon.svg" alt="Github Icon" className="w-10 h-10 icon"/>
                     </a>
                 </article>
             </section>

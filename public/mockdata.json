@@ -62,6 +62,7 @@
       "id": 5,
       "name": "React",
       "image": "/Icons/react-icon.svg",
+      "description": ["In love with react, a library for building user interfaces, components, and applications, tailwind used for styling, makes a website interactive and dynamic within no time"],
       "proficiency": "Intermediate",
       "projects": [2]
     },

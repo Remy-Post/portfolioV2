@@ -13,14 +13,13 @@ const router = createBrowserRouter([
         element: <App />
     },
     {
-        path: "/?",
-        element: <LauguageLayout />,
-        errorElement: <ErrorPage />
-
-    },
-    {
         path: '/github',
         element: <GitHub />
+    },
+    {
+        path: '/:id',
+        element: <LauguageLayout />,
+        errorElement: <ErrorPage />
     }
 ]);
 
