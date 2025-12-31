@@ -73,9 +73,9 @@ export default function App() {
                     </div>
 
                     <article className="flex gap-5 ml-20"> {/*Icons*/}
-                        <a href="Resume.pdf" target="_blank" >
-                            <img src="./Icons/document-icon.svg" alt="Document Icon" className="w-10 h-10 icon resume" />
-                        </a>
+                        <Link to="/resume">
+                            <img src="./Icons/document-icon.svg" alt="Document Icon" className="w-10 h-10 icon" />
+                        </Link>
                         <Link to="/github">
                             <img src="./Icons/github-icon.svg" alt="Github Icon" className="w-10 h-10 icon"/>
                         </Link>

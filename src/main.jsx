@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import GitHub from './GitHub.jsx'
 import LauguageLayout from './LauguageLayout.jsx'
+import Resume from './Resume.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     {
         path: '/github',
         element: <GitHub />
+    },
+    {
+        path: '/resume',
+        element: <Resume />
     },
     {
         path: '/:id',
