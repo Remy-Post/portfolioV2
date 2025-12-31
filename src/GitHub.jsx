@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 import Project from "./Project.jsx";
 
@@ -53,17 +54,17 @@ export default function GitHub() {
 
                 <div className="ml-20">
                     <nav className="flex flex-col border-l-2">
-                        <a className="relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block -ml-[2px] outline-none border-transparent text-[#586574] hover:text-[#0B1724]" href="/" target="_blank">GitHub Calendar</a>
-                        <NavItem href="/">Projects</NavItem>
+                        <NavItem href="#github" isActive={isGithubInView}>GitHub Calendar</NavItem>
+                        <NavItem href="#projects" isActive={isProjectsInView}>Projects</NavItem>
                     </nav>
                 </div>
 
-                <article className="flex gap-5 ml-20">
-                    <Link to="/">
+                <article className="flex gap-5 items-center ml-15">
+                    <Link to="/" target="_blank" className={`relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block -ml-[2px] outline-none border-transparent text-[#586574] hover:text-[#0B1724]`}>
                         <img src="./Icons/home-icon.svg" alt="Document Icon" className="w-10 h-10 icon" />
                     </Link>
                     <a href="https://github.com/Remy-Post/" target="_blank">
-                        <img src="Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
+                        <img src="./Icons/Github.svg" alt="Github Icon" className="w-10 h-10 icon"/>
                     </a>
                 </article>
             </section>
@@ -71,24 +72,25 @@ export default function GitHub() {
             {/*-----------------------------------------*/} {/*Right Side*/}
 
             <section className="w-[99%] bg-[#FFFFFF] py-10">
-                <div ref={githubRef}>
+                <div ref={githubRef} id="github">
                     <div className="flex justify-evenly w-full mx-auto p-4 my-6"> {/*Title*/}
                         <h3 className="text-3xl font-bold">GitHub</h3>
                         <h3 className="text-2xl italic text-[#6C5F6F]">Remy-Post</h3>
                     </div> {/*Title*/}
-                        <div className="w-[95%] mx-auto">
+                        <div className="w-full mx-10">
                         <GitHubCalendar
                             username="Remy-Post"
                             className="w-full h-full"
+                            colorScheme="light"
                         />
                     </div> {/*Github Calendar*/}
                     </div>
-                <div ref={projectsRef}>
+                <div ref={projectsRef} id="projects">
                     <h3 className="text-4xl font-bold mt-20 ml-13">Projects</h3>
                     {
                         isLoading == true ? <div>Loading...</div> : projects.map( ((project, index) => (
-                            <div key={index} className="p-4 m-6 bg-[#FFFFFF] rounded-4xl project hover:bg-gray-500/20">
-                                <Project {...project} css="bg-gray-500/60" />
+                            <div key={index} className="p-4 m-6 bg-[#FFFFFF] rounded-4xl project hover:bg-gray-500/1">
+                                <Project {...project} />
                             </div>
                         )))
                     }
@@ -98,15 +100,21 @@ export default function GitHub() {
     )
 }
 
-import { Link } from "react-router-dom";
-
-function NavItem({href, children}) {
+function NavItem({href, isActive, children }) {
     return (
-        <Link
-            to={href}
-            className="relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block -ml-[2px] outline-none border-transparent text-[#586574] hover:text-[#0B1724]"
-        >
+        <a
+            href={href}
+            className={`
+        relative w-max pl-8 p-3 py-2.5 text-xl font-medium transition-all duration-300 block
+        -ml-[2px] /* Negative margin pulls it on top of the parent border */
+        outline-none /* Removes the outline */ 
+        border-transparent
+        ${isActive
+                ? "ml-3.5 scale-[1.1] underline underline-offset-2"  /* Active State styles */
+                : "border-transparent text-[#586574] hover:text-[#0B1724]"} 
+      `}
+            >
             {children}
-        </Link>
+        </a>
     );
 }

@@ -68,7 +68,7 @@ export default function App() {
                         <nav className="flex flex-col border-l-2">
                             <NavItem href="#about" isActive={aboutMeInView}>About Me</NavItem>
                             <NavItem href="#projects" isActive={projectInView}>Projects</NavItem>
-                            <NavItem href="#work" isActive={workInView && projectInView && !aboutMeInView}>Work Experience </NavItem>
+                            <NavItem href="#work" isActive={workInView}>Work Experience </NavItem>
                         </nav>
                     </div>
 

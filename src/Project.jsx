@@ -2,7 +2,7 @@ import {useState} from "react";
 
 //Helper used to return a 'project element'
 export default function Project({...params}){
-    const [minusClicked, setMinusClicked] = useState(true);
+    const [minusClicked, setMinusClicked] = useState(false);
 
     const colors = {
         gray: "text-[#586574]",
@@ -17,16 +17,16 @@ export default function Project({...params}){
     return(
         <div className={` ${minusClicked ? "p-5" : "p0 m-0"} rounded-4xl project`}>
             {/*Header*/}
-            <div className="grid grid-cols-[20%_60%_20%]">
-                <div className="w-20 flex justify-evenly">
-                    <div className="bg-[#0B7285] w-[3vh] h-[3vh] rounded-4xl group flex justify-center items-center">
+            <div className="grid grid-cols-[25%_50%_25%]">
+                <div className="w-full flex justify-start items-center">
+                    <div className={`${minusClicked ? 'bg-[#0B7285]' : 'bg-[#0B7285] hover:bg-[#0B7285]/90'} w-7 h-7 rounded-[100%] group flex justify-center items-center`}>
                         { minusClicked ? <img src="./Icons/minus-icon.svg" alt="Minus Icon" className="w-4 group-hover:cursor group-hover:bg-gray-700 rounded-4xl icon" onClick={() => setMinusClicked(!minusClicked)} />
                             :
-                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor group-hover:bg-gray-700 rounded-4xl icon" onClick={() => setMinusClicked(!minusClicked)} />
+                            <img src="./Icons/plus-icon.svg" alt="Plus Icon" className="w-4 group-hover:cursor  rounded-4xl " onClick={() => setMinusClicked(!minusClicked)} />
                         }
                     </div>
-                    <div className="bg-[#D96C75] w-[3vh] h-[3vh] rounded-4xl"></div>
-                    <div className="bg-[#6C5F6F] w-[3vh] h-[3vh] rounded-4xl"></div>
+                    <div className="bg-[#D96C75] w-7 h-7 rounded-4xl mx-3"><p className="hidden">HIDDEN</p></div>
+                    <div className="bg-[#6C5F6F] w-7 h-7 rounded-4xl"><p className="hidden">HIDDEN</p></div>
                 </div>
                 <h3 className="text-2xl font-bold text-center self-center">{params.name}</h3>
                 {/*Icon*/}
