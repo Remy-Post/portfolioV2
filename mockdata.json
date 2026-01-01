@@ -1,0 +1,193 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Snake Game",
+      "description": "A recreation of the classic snake game with some personal twist, adding obsticals and portals",
+      "role": "Developer",
+      "techStack": ["JavaFX", "MVC Arcutectures", "Java", "Git", "GitHub"],
+      "githubLink": "",
+      "hostingLink": ""
+    },
+    {
+      "id": 2,
+      "name": "Restaurant Website",
+      "description": "A online, e-commers style restaurant website, where users can order items found within a restaurant",
+      "role": "Developer",
+      "techStack": ["ReactJS", "Redux-Toolkit", "React-Redux", "React Router (Dom)", "React Router", "Tail wind", "Git", "GitHub"],
+      "githubLink": "https://github.com/Remy-Post/Meals-App",
+      "hostingLink": ""
+    },
+    {
+      "id": 3,
+      "name": "Restaurant Review App",
+      "description": "A restaurant review app, where users can review restaurants and leave comments, helping potentials customers make a well-informed decision",
+      "role": "Developer",
+      "highlights": "Used Stipe",
+      "techStack": ["C#", "MVC razor pages", "Stripe", "Google OAuth", "Github OAuth", "Discord OAuth", "CRUD Operations", "Bootstrap", "Git", "GitHub"],
+      "githubLink": "https://github.com/Remy-Post/Restaurant_Review_App",
+      "hostingLink": "https://restaurant-review.tryasp.net/"
+    }
+  ],
+  "techStacks": [
+    {
+      "id": 1,
+      "name": "C#",
+      "proficiency": "Intermediate",
+      "image": "/Icons/csharp-icon.svg",
+      "projects": [3, 4]
+    },
+    {
+      "id": 2,
+      "name": "C++",
+      "image": "/Icons/cplusplus-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 3,
+      "name": "Java",
+      "image": "/Icons/java-icon.svg",
+      "proficiency": "Intermediate",
+      "projects": [1]
+    },
+    {
+      "id": 4,
+      "name": "JavaFX",
+      "image": "/Icons/java-icon.svg",
+      "proficiency": "Intermediate",
+      "projects": [1]
+    },
+    {
+      "id": 5,
+      "name": "React",
+      "image": "/Icons/react-icon.svg",
+      "description": ["In love with react, a library for building user interfaces, components, and applications, tailwind used for styling, makes a website interactive and dynamic within no time"],
+      "proficiency": "Intermediate",
+      "projects": [2]
+    },
+    {
+      "id": 6,
+      "name": "JavaScript",
+      "image": "/Icons/javascript-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 7,
+      "name": "TypeScript",
+      "image": "/Icons/typescript-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 8,
+      "name": "MySQL",
+      "proficiency": "Intermediate",
+      "image": "/Icons/mysql-icon.svg",
+      "projects": []
+    },
+    {
+      "id": 9,
+      "name": "PHP",
+      "image": "/Icons/php-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 10,
+      "name": "HTML",
+      "proficiency": "Advanced",
+      "image": "/Icons/html5-icon.svg",
+      "projects": []
+    },
+    {
+      "id": 11,
+      "name": "CSS",
+      "image": "/Icons/css-icon.svg",
+      "proficiency": "Intermediate",
+      "projects": []
+    },
+    {
+      "id": 12,
+      "name": "Tailwind",
+      "image": "/Icons/tailwindCss-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },
+    {
+      "id": 13,
+      "name": "Bootstrap",
+      "image": "/Icons/bootstrap-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    },{
+      "id": 14,
+      "name": "Python",
+      "image": "/Icons/python-icon.svg",
+      "proficiency": "Intermediate",
+      "projects": []
+    },{
+      "id": 15,
+      "name": "Arduino (C++)",
+      "image": "/Icons/arduino-icon.svg",
+      "proficiency": "Beginner",
+      "projects": []
+    }
+  ],
+  "contacts": [
+    {
+      "name": "GitHub",
+      "icon": "",
+      "link": "https://github.com/Remy-Post"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "",
+      "link": "https://www.linkedin.com/in/remy-post/"
+    },
+    {
+      "name": "Discord",
+      "icon": "",
+      "link": "https://discord.com/users/remy-post"
+    },
+    {
+      "name": "Email",
+      "icon": "",
+      "link": "remy.post.06@gmail.com"
+    }
+  ],
+
+  "work": [
+    {
+      "company": "Town of Bradford",
+      "position": "Camp Counsellor",
+      "date": {
+        "year" : "2023 to 2025",
+        "month": "July - Aug"
+      },
+      "descriptionArray": [
+        "Designed and facilitated daily educational activities (crafts, games, team-building exercises) for groups of 30+ campers aged 4 to 8, fostering creativity, teamwork, and fundamental skill development.",
+        "Problem resolment: Resolved conflicts and promoted inclusivity by mediating disagreements among campers and implementing behaviour management strategies to ensure a safe and welcoming environment.",
+        "Collaborated with parents and staff: Communicated daily updates to caretakers and parents, addressed concerns, and partnered with colleagues to optimize camp procedures and workflows.",
+        "Worked at special town events: Canada Day Celebrations and Carrot Fest, developing customer service and communication skills."
+      ]
+    },
+    {
+      "company": "Food Basics",
+      "position": "Meat Associate",
+      "date": {
+        "year": "2023 to 2023",
+        "month": "Jan - May"
+      },
+      "descriptionArray": [
+        "Delivered customer service: Assisted shoppers with product inquiries, recommendations, and special requests, promoting a positive shopping experience.",
+        "Collaborated with team members: Supported efficient workflow during peak hours to meet departmental goals and maintain organized displays."
+      ]
+    }
+  ],
+  "keyWords": [
+    "Talented",
+    "Ambitious"
+  ]
+}
