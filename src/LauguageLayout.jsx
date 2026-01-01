@@ -93,9 +93,10 @@ export default function LauguageLayout(){
                             ))
                         }
                     </div>)} {/*Description*/}
-                <div>
+                <div className="w-9/10 mt-5 mx-auto">
+                    <h3 className="ml-3 mb-8 underline underline-offset-2 text-3xl font-bold">Projects</h3>
                     { projects && projects.map((p, index) => (
-                            <Project key={index} project={p} />
+                            <Project key={index} {...p} />
                         ))
                     }
                 </div> {/*Projects*/}
