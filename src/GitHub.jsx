@@ -18,10 +18,12 @@ export default function GitHub() {
     const { ref : projectsRef, inView : isProjectsInView } = useInView();
 
     useEffect(() => {
-        fetch("mockdata.json").then(res => res.json()).then(data => {
-            setKeyWords(data.keyWords);
-            setProjects(data.projects);
-
+        Promise.all([
+            fetch("/api/keywords").then(res => res.json()),
+            fetch("/api/projects").then(res => res.json()),
+        ]).then(([keyWords, projects]) => {
+            setKeyWords(keyWords);
+            setProjects(projects);
             setLoading(false);
         })
             .catch(error => console.error("Error fetching data:", error));

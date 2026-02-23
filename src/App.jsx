@@ -26,13 +26,17 @@ export default function App() {
     console.log("Work Ref: ",workInView);
 
     useEffect(() => {
-        fetch("mockdata.json").then(res => res.json()).then(data => {
-            setProjects(data.projects);
-            setWork(data.work);
-            setTechStacks(data.techStacks);
+        Promise.all([
+            fetch("/api/projects").then(res => res.json()),
+            fetch("/api/work").then(res => res.json()),
+            fetch("/api/techstacks").then(res => res.json()),
+            fetch("/api/keywords").then(res => res.json()),
+        ]).then(([projects, work, techStacks, keyWords]) => {
+            setProjects(projects);
+            setWork(work);
+            setTechStacks(techStacks);
+            setKeyWords(keyWords);
             setLoading(false);
-            setKeyWords(data.keyWords);
-            console.log(data);
         });
     }, []);
 

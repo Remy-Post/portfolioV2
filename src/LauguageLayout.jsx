@@ -15,23 +15,23 @@ export default function LauguageLayout(){
 
 
     useEffect(() => {
-        fetch("mockdata.json")
-            .then(res => res.json())
-            .then(data => {
-                setKeyWords(data.keyWords ?? []);
+        Promise.all([
+            fetch("/api/keywords").then(res => res.json()),
+            fetch("/api/techstacks").then(res => res.json()),
+            fetch("/api/projects").then(res => res.json()),
+        ]).then(([keyWords, techStacks, projects]) => {
+            setKeyWords(keyWords ?? []);
 
+            const match = (techStacks ?? []) //Sees if it is a techStack
+                .find((tech) => tech.name.toLowerCase() === id); //Finds the first techStack that matches the id, if exists
+            setLanguage(match ?? []);
 
-                const match = (data.techStacks ?? []) //Sees if it is a techStack
-                    .find((tech) => tech.name.toLowerCase() === id); //Finds the first techStack that matches the id, if exists
-                setLanguage(match ?? []);
+            const allProjects = (projects ?? []) //Sees if it is a project
+                .filter((p) => p.techStack.map((tech) => tech.toLowerCase()).includes(id)); //Filters the projects that match the techStack
+            setProjects(allProjects);
 
-                const allProjects = (data.projects ?? []) //Sees if it is a project
-                    .filter((p) => p.techStack.map((tech) => tech.toLowerCase()).includes(id)); //Filters the projects that match the techStack
-                setProjects(allProjects);
-
-                setIsLoading(false);
-                return data;
-            })
+            setIsLoading(false);
+        })
             .catch(() => {
                 setKeyWords([]);
                 setLanguage(null);

@@ -6,10 +6,10 @@ export default function Resume() {
     const [activeKeywordIndex, setActiveKeywordIndex] = useState(0);
 
     useEffect(() => {
-        fetch("mockdata.json")
+        fetch("/api/keywords")
             .then(res => res.json())
-            .then(data => {
-                setKeyWords(data.keyWords ?? []);
+            .then(keyWords => {
+                setKeyWords(keyWords ?? []);
             })
             .catch(() => {
                 setKeyWords([]);
