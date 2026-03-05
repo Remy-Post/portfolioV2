@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 server/node_modules
 server/.env
-dist
+build
 dist-ssr
 *.local
 
@@ -25,4 +25,3 @@ dist-ssr
 *.sln
 *.sw?
 
-.vercel
